@@ -20,36 +20,57 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 
 ?>
 
-<div class="container table-responsive w-50 mt-3 mb-3">
-    <table class="table table-striped table-hover table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">SI. No</th>
-                <th scope="col">Login Id</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sql = "SELECT `id`, `teacherID` FROM `teacherlogin`";
+<div class="container p-0">
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
 
-            $res = mysqli_query($conn, $sql);
-            $i = 0;
-            while ($row = mysqli_fetch_assoc($res)) {
-                $i = $i + 1;
-                echo '<tr>
+                        <div class="card shadow m-auto">
+                            <div class="card-header">
+                                <h3><strong>Student Register</strong><small> Form</small></h3>
+                            </div>
+                            <div class="container table-responsive w-50 mt-3 mb-3">
+                                <table class="table table-striped table-hover table-bordered" id="myTable
+                                ">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">SI. No</th>
+                                            <th scope="col">Login Id</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $sql = "SELECT `id`, `teacherID` FROM `teacherlogin`";
+
+                                        $res = mysqli_query($conn, $sql);
+                                        $i = 0;
+                                        while ($row = mysqli_fetch_assoc($res)) {
+                                            $i = $i + 1;
+                                            echo '<tr>
                 <td scope="row">' . $i . '</td>
                 <td scope="row">' . $row['teacherID'] . '</td>
                 <td scope="row">
                     <a class="btn btn-danger" href="?type=delete&operation=delete_teacherID&teacherID=' . $row['teacherID'] . '">Delete</a>
                 </td>
             </tr>';
-            }
-            ?>
+                                        }
+                                        ?>
 
-        </tbody>
-    </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <?php
 require('partials/_footer.php');

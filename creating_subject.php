@@ -129,58 +129,81 @@ if ($tableError) {
     </div>
 </div>
 
-<div class="container table-responsive w-75 mt-3 mb-3">
-    <table class="table table-striped table-hover table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">SI. No</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Subject</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sqlSub = "SELECT * FROM `bcasub`";
-            $resSub = mysqli_query($conn, $sqlSub);
-            $i = 0;
-            while ($rowSub = mysqli_fetch_assoc($resSub)) {
-                $i = $i + 1;
-                echo '<tr>
-                <td scope="row">' . $rowSub['id'] . '</td>
-                <td scope="row">' . $rowSub['sem'] . '</td>
-                <td scope="row">' . $rowSub['subjectName'] . '</td>
-                <td scope="row">
-                    <button type="button" class="update_sub btn btn-primary" id="">Update</button> ';
-                $sqlCheck = "SELECT table_name FROM information_schema.tables WHERE table_schema = '$database' AND table_name = '{$rowSub['subjectName']}'";
-                $resCheck = mysqli_query($conn, $sqlCheck);
-                if ($resCheck) {
-                    if (mysqli_num_rows($resCheck) > 0) {
-                        $alreadyExists = true;
-                    } else {
-                        $alreadyExists = false;
-                    }
-                }
-                if ($alreadyExists) {
-                    echo '<a class="btn btn-primary disabled" aria-disabled="true">Create Attendance Table</a> ';
-                } else {
-                    echo '<a class="btn btn-primary" href="creating_attendance_table.php?type=create_table&sub=' . $rowSub['subjectName'] . '&sem=' . $rowSub['sem'] . '">Create Attendance Table</a> ';
-                }
-                echo '<a class="btn btn-danger" href="?type=delete&operation=delete_sub&sub=' . $rowSub['subjectName'] . '">Delete</a>
-                </td>
-            </tr>';
-            }
-            ?>
-            <tr>
-                <td colspan="4">
-                    <div class="center">
-                        <button type="button" class="add_sub btn btn-primary">Add Subject</button>
-                    </div>
-                </td>
-            </tr>
+<div class="container p-0">
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
 
-        </tbody>
-    </table>
+                        <div class="card shadow m-auto">
+                            <div class="card-header">
+                                <h3><strong>Creating Subject</strong></h3>
+                            </div>
+
+                            <div class="container w-75 mt-3 mb-3">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">SI. No</th>
+                                            <th scope="col">Semester</th>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $sqlSub = "SELECT * FROM `bcasub`";
+                                        $resSub = mysqli_query($conn, $sqlSub);
+                                        $i = 0;
+                                        while ($rowSub = mysqli_fetch_assoc($resSub)) {
+                                            $i = $i + 1;
+                                            echo '<tr>
+                                                    <td scope="row">' . $rowSub['id'] . '</td>
+                                                    <td scope="row">' . $rowSub['sem'] . '</td>
+                                                    <td scope="row">' . $rowSub['subjectName'] . '</td>
+                                                    <td scope="row">
+                                                        <button type="button" class="update_sub btn btn-primary" id="">Update</button> ';
+                                            $sqlCheck = "SELECT table_name FROM information_schema.tables WHERE table_schema = '$database' AND table_name = '{$rowSub['subjectName']}'";
+                                            $resCheck = mysqli_query($conn, $sqlCheck);
+                                            if ($resCheck) {
+                                                if (mysqli_num_rows($resCheck) > 0) {
+                                                    $alreadyExists = true;
+                                                } else {
+                                                    $alreadyExists = false;
+                                                }
+                                            }
+                                            if ($alreadyExists) {
+                                                echo '<a class="btn btn-primary disabled" aria-disabled="true">Create Attendance Table</a> ';
+                                            } else {
+                                                echo '<a class="btn btn-primary" href="creating_attendance_table.php?type=create_table&sub=' . $rowSub['subjectName'] . '&sem=' . $rowSub['sem'] . '">Create Attendance Table</a> ';
+                                            }
+                                            echo '<a class="btn btn-danger" href="?type=delete&operation=delete_sub&sub=' . $rowSub['subjectName'] . '">Delete</a>
+                                                </td>
+                                            </tr>';
+                                        }
+                                        ?>
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="center">
+                                                    <button type="button" class="add_sub btn btn-primary">Add Subject</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container table-responsive w-75 mt-3 mb-3">
+
 </div>
 
 <?php

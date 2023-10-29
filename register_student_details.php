@@ -65,12 +65,12 @@ if ($showError) {
   </div>';
 }
 ?>
-<div class="container w-75 m-auto p-0">
+<div class="container p-0">
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="container m-3">
+                    <div class="container">
 
                         <div class="card shadow m-auto">
                             <div class="card-header">

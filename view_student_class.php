@@ -13,19 +13,19 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
 ?>
 
 
-<div class="container m-auto p-0">
+<div class="container">
     <div class="content">
         <div class="animated fadeIn">
-            <div class="row m-0">
+            <div class="row">
                 <div class="col-lg-12 p-0">
-                    <div class="container mt-3 mb-3">
+                    <div class="container">
 
-                        <div class="card shadow m-auto">
+                        <div class="card shadow">
                             <div class="card-header">
                                 <h3><strong>View Student Details</strong><small></small></h3>
                             </div>
 
-                            <div class="container table-responsive w-50 m-auto mt-2 mb-3">
+                            <div class="container table-responsive w-50 mt-3 mb-3">
                                 <table class="table table-striped table-hover table-bordered">
                                     <thead class="table-dark">
                                         <tr>

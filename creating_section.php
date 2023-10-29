@@ -125,89 +125,107 @@ if (isset($_POST['deactiveSection'])) {
     </div>
 </div>
 
-<div class="container table-responsive w-50 mt-3 mb-3">
-    <table class="table table-striped table-hover table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">SI. No</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Section</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            // echo "SELECT DISTINCT `bcasem`.`status`,`bcasection`.`status`, `bcasection`.`sem`, `bcasection`.`section` FROM `bcasection`,`bcasem` where `bcasection`.`sem` = `bcasem`.`sem` AND `bcasem`.`status`='1' AND `bcasection`.`status`='1'";
-            // die();
-            $sqlA = "SELECT DISTINCT `bcasem`.`status`,`bcasection`.`status`, `bcasection`.`sem`, `bcasection`.`section` FROM `bcasection`,`bcasem` where `bcasection`.`sem` = `bcasem`.`sem` AND `bcasem`.`status`='1' AND `bcasection`.`status`='1'";
+<div class="container p-0">
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
 
-            $resA = mysqli_query($conn, $sqlA);
-            $secAa = [];
-            $secBb = [];
-            $secCc = [];
-            $semA = '';
-            $semB = '';
-            $semC = '';
-            $status = '';
+                        <div class="card shadow m-auto">
+                            <div class="card-header">
+                                <h3><strong>Creating Section</strong></h3>
+                            </div>
+                            <div class="container w-75 mb-3">
+                                <table class="table table-striped table-hover table-bordered mt-3">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">SI. No</th>
+                                            <th scope="col">Semester</th>
+                                            <th scope="col">Section</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        // echo "SELECT DISTINCT `bcasem`.`status`,`bcasection`.`status`, `bcasection`.`sem`, `bcasection`.`section` FROM `bcasection`,`bcasem` where `bcasection`.`sem` = `bcasem`.`sem` AND `bcasem`.`status`='1' AND `bcasection`.`status`='1'";
+                                        // die();
+                                        $sqlA = "SELECT DISTINCT `bcasem`.`status`,`bcasection`.`status`, `bcasection`.`sem`, `bcasection`.`section` FROM `bcasection`,`bcasem` where `bcasection`.`sem` = `bcasem`.`sem` AND `bcasem`.`status`='1' AND `bcasection`.`status`='1'";
 
-            while ($row = mysqli_fetch_assoc($resA)) {
-                if ($row['sem'] == '1' || $row['sem'] == '2') {
-                    $secAa[] = $row['section'];
-                    $semA = $row['sem'];
-                } else if ($row['sem'] == '3' || $row['sem'] == '4') {
-                    $secBb[] = $row['section'];
-                    $semB = $row['sem'];
-                } else if ($row['sem'] == '5' || $row['sem'] == '6') {
-                    $secCc[] = $row['section'];
-                    $semC = $row['sem'];
-                }
-                $status = $row['status'];
-            }
-            $secA = implode(", ", $secAa);
-            $secB = implode(", ", $secBb);
-            $secC = implode(", ", $secCc);
-            ?>
+                                        $resA = mysqli_query($conn, $sqlA);
+                                        $secAa = [];
+                                        $secBb = [];
+                                        $secCc = [];
+                                        $semA = '';
+                                        $semB = '';
+                                        $semC = '';
+                                        $status = '';
 
-            <tr>
-                <td scope="row">1</td>
-                <td scope="row"><?php echo $semA; ?></td>
-                <td scope="row"><?php echo $secA; ?></td>
-                <td scope="row">
-                    <button type="button" class="active_sec btn btn-primary" id="<?php echo $semA; ?>">Active</button>
-                    <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semA; ?>">Deactive</button>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row">2</td>
-                <td scope="row"><?php echo $semB; ?></td>
-                <td scope="row"><?php echo $secB; ?></td>
-                <td scope="row">
-                    <button type="button" class="active_sec btn btn-primary" id="<?php echo $semB; ?>">Active</button>
-                    <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semB; ?>">Deactive</button>
-                </td>
-            </tr>
-            <tr>
-                <td scope="row">3</td>
-                <td scope="row"><?php echo $semC; ?></td>
-                <td scope="row"><?php echo $secC; ?></td>
-                <td scope="row">
-                    <button type="button" class="active_sec btn btn-primary" id="<?php echo $semC; ?>">Active</button>
-                    <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semC; ?>">Deactive</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <?php
-                    if ($semA == 1) { ?>
-                        <a class="btn btn-primary" href="?type=status&operation=even_sem">Even Semester</a>
-                    <?php } else { ?>
-                        <a class="btn btn-primary" href="?type=status&operation=odd_sem">Odd Semester</a>
-                    <?php } ?>
-                </td>
-            </tr>
+                                        while ($row = mysqli_fetch_assoc($resA)) {
+                                            if ($row['sem'] == '1' || $row['sem'] == '2') {
+                                                $secAa[] = $row['section'];
+                                                $semA = $row['sem'];
+                                            } else if ($row['sem'] == '3' || $row['sem'] == '4') {
+                                                $secBb[] = $row['section'];
+                                                $semB = $row['sem'];
+                                            } else if ($row['sem'] == '5' || $row['sem'] == '6') {
+                                                $secCc[] = $row['section'];
+                                                $semC = $row['sem'];
+                                            }
+                                            $status = $row['status'];
+                                        }
+                                        $secA = implode(", ", $secAa);
+                                        $secB = implode(", ", $secBb);
+                                        $secC = implode(", ", $secCc);
+                                        ?>
 
-        </tbody>
-    </table>
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td scope="row"><?php echo $semA; ?></td>
+                                            <td scope="row"><?php echo $secA; ?></td>
+                                            <td scope="row">
+                                                <button type="button" class="active_sec btn btn-primary" id="<?php echo $semA; ?>">Active</button>
+                                                <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semA; ?>">Deactive</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">2</td>
+                                            <td scope="row"><?php echo $semB; ?></td>
+                                            <td scope="row"><?php echo $secB; ?></td>
+                                            <td scope="row">
+                                                <button type="button" class="active_sec btn btn-primary" id="<?php echo $semB; ?>">Active</button>
+                                                <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semB; ?>">Deactive</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">3</td>
+                                            <td scope="row"><?php echo $semC; ?></td>
+                                            <td scope="row"><?php echo $secC; ?></td>
+                                            <td scope="row">
+                                                <button type="button" class="active_sec btn btn-primary" id="<?php echo $semC; ?>">Active</button>
+                                                <button type="button" class="deactive_sec btn btn-danger" id="<?php echo $semC; ?>">Deactive</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <?php
+                                                if ($semA == 1) { ?>
+                                                    <a class="btn btn-primary" href="?type=status&operation=even_sem">Even Semester</a>
+                                                <?php } else { ?>
+                                                    <a class="btn btn-primary" href="?type=status&operation=odd_sem">Odd Semester</a>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php

@@ -83,68 +83,86 @@ session_start();
             <?php if (isset($_SESSION['login'])) { 
                 if (isset($_SESSION['adminLoggedIn'])) { ?> 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                MENU
+            <div class="sidebar-heading mb-3">
+                Admin Student Menu
             </div>
+            <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="categories.php">
+                <a class="nav-link" href="register_student_details.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Categories Master</span></a>
+                    <span>Register Student details</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="sub_categories.php">
+                <a class="nav-link" href="view_student_class.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Sub Categories Master</span></a>
+                    <span>View Student details</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="product.php">
+                <a class="nav-link collapsed" href="creating_section.php">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Product Master</span>
+                    <span>Creating Section</span>
                 </a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="order_master.php">
+                <a class="nav-link" href="student_attendance.php">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Order Master</span></a>
+                    <span>View Student Attendance</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="users.php">
+                <a class="nav-link" href="student_marks.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Users Master</span></a>
+                    <span>View Student Marks</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="coupon_master.php">
+                <a class="nav-link" href="student_fee.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Coupon Master</span></a>
+                    <span>View Student Fee status</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="product_review.php">
+                <a class="nav-link" href="student_login_id.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Product Review</span></a>
+                    <span>Student Login ID</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <div class="sidebar-heading mt-3 mb-3">
+                Admin Teacher Menu
+            </div>
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link" href="register_teacher_details.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Register Teacher details</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="banner.php">
+                <a class="nav-link" href="view_teacher_details.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Banner</span></a>
+                    <span>View Teacher details</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="contact_us.php">
+                <a class="nav-link" href="creating_subject.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Contact Us</span></a>
+                    <span>Creating Subject</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="teacher_login_id.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Teacher Login ID</span></a>
             </li>
 
             <!-- Divider -->
