@@ -7,8 +7,9 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
 }
 
 $week = date("D");
-// $today = date("Md");
-$today = 'Oct23';
+$today = date("Md");
+// $today = 'Oct14';
+// $week = 'Mon';
 $successInsert = false;
 $alreadyExists = false;
 $tablelist = ['hii'];
@@ -54,12 +55,15 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
             }
             for ($j = 0; $j < count($subject); $j++) {
                 $sqlDate = "ALTER TABLE `$subject[$j]` ADD `{$dateValue}` VARCHAR(10) NOT NULL DEFAULT 'Empty'";
-                echo '<br>' . $sqlDate;
-                // $resDate = mysqli_query($conn, $sqlDate);
+                // echo '<br>' . $sqlDate;
+                $resDate = mysqli_query($conn, $sqlDate);
+                if ($resDate) {
+                    $successInsert = true;
+                } else {
+                    $errorImsert = true;
+                    echo "Failed";
+                }
             }
-            // if ($resDate) {
-            //     $successInsert = true;
-            // }
         }
     }
 }

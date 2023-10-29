@@ -29,7 +29,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 
                         <div class="card shadow m-auto">
                             <div class="card-header">
-                                <h3><strong>Student Register</strong><small> Form</small></h3>
+                                <h3><strong>Teacher ID</strong></h3>
                             </div>
                             <div class="container table-responsive w-50 mt-3 mb-3">
                                 <table class="table table-striped table-hover table-bordered" id="myTable
@@ -50,12 +50,12 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
                                         while ($row = mysqli_fetch_assoc($res)) {
                                             $i = $i + 1;
                                             echo '<tr>
-                <td scope="row">' . $i . '</td>
-                <td scope="row">' . $row['teacherID'] . '</td>
-                <td scope="row">
-                    <a class="btn btn-danger" href="?type=delete&operation=delete_teacherID&teacherID=' . $row['teacherID'] . '">Delete</a>
-                </td>
-            </tr>';
+                                                <td scope="row">' . $i . '</td>
+                                                <td scope="row">' . $row['teacherID'] . '</td>
+                                                <td scope="row">
+                                                    <a class="btn btn-danger" href="?type=delete&operation=delete_teacherID&teacherID=' . $row['teacherID'] . '">Delete</a>
+                                                </td>
+                                            </tr>';
                                         }
                                         ?>
 

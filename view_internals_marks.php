@@ -145,18 +145,17 @@ if ($error) {
     </div>
 </div>
 
-<div class="container m-auto p-0">
+<div class="container">
     <div class="content">
         <div class="animated fadeIn">
             <div class="row m-0">
                 <div class="col-lg-12 p-0">
-                    <div class="container mt-3 mb-3 p-0">
-
+                    <div class="container">
                         <div class="card shadow">
                             <div class="card-header">
                                 <h3 id="h3"><strong>View Student Marks in </strong><small><?php echo $subject; ?></small></h3>
                             </div>
-                            <div class="container table-responsive m-auto mt-2 mb-3">
+                            <div class="container table-responsive mt-2 mb-3">
 
                                 <table class="table table-striped table-hover table-bordered">
                                     <thead class="table-dark">

@@ -173,9 +173,54 @@ session_start();
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
             <?php
-                } elseif (isset($_SESSION['teacherLoggedIn'])) {
-                    echo 'Teacher';
-                } elseif (isset($_SESSION['studentLoggedIn'])) {
+                } elseif (isset($_SESSION['teacherLoggedIn'])) { ?>
+                    <div class="sidebar-heading mb-3">
+                Teacher Menu
+            </div>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="teacher_profile.php">
+                    <i class="fas fa-fw  fa-user"></i>
+                    <span>View Profile</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="view_exam.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Enter Marks</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="view_classes.php">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Enter Attendance</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="view_student_class.php">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>View student Details</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="view_assigned_subject.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Assigned Subject</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+                <?php } elseif (isset($_SESSION['studentLoggedIn'])) {
                     echo 'Student';
                 }
             }

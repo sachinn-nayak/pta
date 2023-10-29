@@ -110,6 +110,7 @@ if (isset($_POST['updatePassword'])) {
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div class="card shadow m-auto">
                             <div class="card-header">
                                 <h3><small>Change Password</small></h3>

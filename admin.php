@@ -127,20 +127,13 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) { 
                         </a>
                     </div>
 
-
-                    <div class="feature">
-                        <a href="student_marks.php">
-                            <h3>View Student Marks</h3>
-                            <p></p>
-                        </a>
-                    </div>
-
                     <div class="feature">
                         <a href="student_fee.php">
                             <h3>View Student Fee status</h3>
                             <p> </p>
                         </a>
                     </div>
+                    
                     <div class="feature">
                         <a href="student_login_id.php">
                             <h3>Student Login ID</h3>

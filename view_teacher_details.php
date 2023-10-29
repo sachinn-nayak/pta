@@ -107,7 +107,7 @@ if ($error) {
 
                         <div class="card shadow m-auto">
                             <div class="card-header">
-                                <h3><strong>View Student Details</strong><small></small></h3>
+                                <h3><strong>View Teacher Details</strong><small></small></h3>
                             </div>
 
                             <div class="container table-responsive m-0 mt-2 mb-3">
