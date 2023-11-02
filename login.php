@@ -31,7 +31,10 @@ if (isset($_POST['adminID']) && isset($_POST['adminPassword'])) {
             $_SESSION['teacherLoggedIn'] = true;
             $_SESSION['teacherID'] = $teacherID;
             header("location: teacher.php");
-        } 
+        } else {
+            echo 'unsucess';
+            die();
+        }
     } else {
         $showTeacherError = true;
     }
@@ -133,17 +136,25 @@ if ($showStudentError) {
         <div class="container w-75 border border-dark p-0 pb-5 mt-5 m-auto">
             <ul class="nav nav-tabs border justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link <?php if(($showTeacherError === false)&&($showStudentError === false)){ echo 'active';} ?>" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="true">Admin login</button>
+                    <button class="nav-link <?php if (($showTeacherError === false) && ($showStudentError === false)) {
+                                                echo 'active';
+                                            } ?>" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="true">Admin login</button>
                 </li>
                 <li class="nav-item " role="presentation">
-                    <button class="nav-link <?php if($showTeacherError){ echo 'active';} ?>" id="teacher-tab" data-bs-toggle="tab" data-bs-target="#teacher" type="button" role="tab" aria-controls="teacher" aria-selected="false">Teacher Login</button>
+                    <button class="nav-link <?php if ($showTeacherError) {
+                                                echo 'active';
+                                            } ?>" id="teacher-tab" data-bs-toggle="tab" data-bs-target="#teacher" type="button" role="tab" aria-controls="teacher" aria-selected="false">Teacher Login</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link <?php if($showStudentError){ echo 'active';} ?>" id="parent-tab" data-bs-toggle="tab" data-bs-target="#parent" type="button" role="tab" aria-controls="parent" aria-selected="false">Parent Login</button>
+                    <button class="nav-link <?php if ($showStudentError) {
+                                                echo 'active';
+                                            } ?>" id="parent-tab" data-bs-toggle="tab" data-bs-target="#parent" type="button" role="tab" aria-controls="parent" aria-selected="false">Parent Login</button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade <?php if(($showTeacherError === false)&&($showStudentError === false)){ echo 'show active';} ?>" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+                <div class="tab-pane fade <?php if (($showTeacherError === false) && ($showStudentError === false)) {
+                                                echo 'show active';
+                                            } ?>" id="admin" role="tabpanel" aria-labelledby="admin-tab">
                     <div class="containerlg" id="adminLogin">
                         <h1>Admin Login</h1>
                         <form id="adminLogin-form" action="login.php" method="post">
@@ -157,7 +168,9 @@ if ($showStudentError) {
                         <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
-                <div class="tab-pane fade <?php if($showTeacherError){ echo 'show active';} ?>" id="teacher" role="tabpanel" aria-labelledby="teacher-tab">
+                <div class="tab-pane fade <?php if ($showTeacherError) {
+                                                echo 'show active';
+                                            } ?>" id="teacher" role="tabpanel" aria-labelledby="teacher-tab">
                     <div class="containerlg" id="teacherLogin">
                         <h1>Teacher Login</h1>
                         <form id="teacherLogin-form" action="login.php" method="post">
@@ -172,7 +185,9 @@ if ($showStudentError) {
                         <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
-                <div class="tab-pane fade <?php if($showStudentError){ echo 'show active';} ?>" id="parent" role="tabpanel" aria-labelledby="parentteacherEtab">
+                <div class="tab-pane fade <?php if ($showStudentError) {
+                                                echo 'show active';
+                                            } ?>" id="parent" role="tabpanel" aria-labelledby="parentteacherEtab">
                     <div class="containerlg" id="parentLogin">
                         <h1>Parent Login</h1>
                         <form id="parentLogin-form" action="login.php" method="post">

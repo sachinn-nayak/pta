@@ -16,7 +16,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/custom.css">    
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/stylebs.css">
     <link rel="stylesheet" href="/pta/css/custom.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -40,7 +40,7 @@ session_start();
                 } elseif (isset($_SESSION['teacherLoggedIn'])) {
                     echo 'teacher.php';
                 } elseif (isset($_SESSION['studentLoggedIn'])) {
-                    echo 'student.php';
+                    echo 'parent.php';
                 }
             }
             ?>">
@@ -56,173 +56,194 @@ session_start();
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="<?php if (isset($_SESSION['login'])) {
-                if (isset($_SESSION['adminLoggedIn'])) {
-                    echo 'admin.php';
-                } elseif (isset($_SESSION['teacherLoggedIn'])) {
-                    echo 'teacher.php';
-                } elseif (isset($_SESSION['studentLoggedIn'])) {
-                    echo 'student.php';
-                }
-            }
-            ?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span><?php if (isset($_SESSION['login'])) {
-                if (isset($_SESSION['adminLoggedIn'])) {
-                    echo 'Admin';
-                } elseif (isset($_SESSION['teacherLoggedIn'])) {
-                    echo 'Teacher';
-                } elseif (isset($_SESSION['studentLoggedIn'])) {
-                    echo 'Student';
-                }
-            }
-            ?></span></a>
+                                                if (isset($_SESSION['adminLoggedIn'])) {
+                                                    echo 'admin.php';
+                                                } elseif (isset($_SESSION['teacherLoggedIn'])) {
+                                                    echo 'teacher.php';
+                                                } elseif (isset($_SESSION['studentLoggedIn'])) {
+                                                    echo 'parent.php';
+                                                }
+                                            }
+                                            ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span><?php if (isset($_SESSION['login'])) {
+                                if (isset($_SESSION['adminLoggedIn'])) {
+                                    echo 'Admin';
+                                } elseif (isset($_SESSION['teacherLoggedIn'])) {
+                                    echo 'Teacher';
+                                } elseif (isset($_SESSION['studentLoggedIn'])) {
+                                    echo 'Parent';
+                                }
+                            }
+                            ?></span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <?php if (isset($_SESSION['login'])) { 
-                if (isset($_SESSION['adminLoggedIn'])) { ?> 
-            <!-- Heading -->
-            <div class="sidebar-heading mb-3">
-                Admin Student Menu
-            </div>
-            <hr class="sidebar-divider my-0">
+            <?php if (isset($_SESSION['login'])) {
+                if (isset($_SESSION['adminLoggedIn'])) { ?>
+                    <div class="sidebar-heading mb-3">
+                        Admin Student Menu
+                    </div>
+                    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="register_student_details.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Register Student details</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register_student_details.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Register Student details</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="view_student_class.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>View Student details</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_student_class.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>View Student details</span></a>
+                    </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="creating_section.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Creating Section</span>
-                </a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="creating_section.php">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Creating Section</span>
+                        </a>
+                    </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="student_attendance.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>View Student Attendance</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student_attendance.php">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>View Student Attendance</span></a>
+                    </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="student_marks.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>View Student Marks</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student_fee.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>View Student Fee status</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="student_fee.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>View Student Fee status</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="student_login_id.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Student Login ID</span></a>
+                    </li>
+                    <hr class="sidebar-divider my-0">
 
-            <li class="nav-item">
-                <a class="nav-link" href="student_login_id.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Student Login ID</span></a>
-            </li>
-            <hr class="sidebar-divider my-0">
+                    <div class="sidebar-heading mt-3 mb-3">
+                        Admin Teacher Menu
+                    </div>
+                    <hr class="sidebar-divider my-0">
 
-            <div class="sidebar-heading mt-3 mb-3">
-                Admin Teacher Menu
-            </div>
-            <hr class="sidebar-divider my-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="register_teacher_details.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Register Teacher details</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="register_teacher_details.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Register Teacher details</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_teacher_details.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>View Teacher details</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="view_teacher_details.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>View Teacher details</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="creating_subject.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Creating Subject</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="creating_subject.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Creating Subject</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teacher_login_id.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Teacher Login ID</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="teacher_login_id.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Teacher Login ID</span></a>
-            </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-            <?php
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
+                <?php
                 } elseif (isset($_SESSION['teacherLoggedIn'])) { ?>
                     <div class="sidebar-heading mb-3">
-                Teacher Menu
-            </div>
-            <hr class="sidebar-divider my-0">
+                        Teacher Menu
+                    </div>
+                    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="teacher_profile.php">
-                    <i class="fas fa-fw  fa-user"></i>
-                    <span>View Profile</span></a>
-            </li>
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="teacher_profile.php">
+                            <i class="fas fa-fw  fa-user"></i>
+                            <span>View Profile</span></a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="view_exam.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Enter Marks</span></a>
-            </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_exam.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Enter Marks</span></a>
+                    </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="view_classes.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Enter Attendance</span>
-                </a>
-            </li>
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="view_classes.php">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>Enter Attendance</span>
+                        </a>
+                    </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="view_student_class.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>View student Details</span></a>
-            </li>
+                    <!-- Nav Item - Charts -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_student_class.php">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>View student Details</span></a>
+                    </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="view_assigned_subject.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Assigned Subject</span></a>
-            </li>
+                    <!-- Nav Item - Tables -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_assigned_subject.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Assigned Subject</span></a>
+                    </li>
 
-            <hr class="sidebar-divider d-none d-md-block">
+                    <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-                <?php } elseif (isset($_SESSION['studentLoggedIn'])) {
-                    echo 'Student';
-                }
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
+                <?php } elseif (isset($_SESSION['studentLoggedIn'])) { ?>
+                    <div class="sidebar-heading mb-3">
+                        Parent Menu
+                    </div>
+                    <hr class="sidebar-divider my-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="student_profile.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>View Profile</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_exam_student.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>View Marks</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="view_my_attendance.php">
+                            <i class="fas fa-fw fa-folder"></i>
+                            <span>View Attendance</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_fee.php">
+                            <i class="fas fa-fw fa-chart-area"></i>
+                            <span>View Fee Status</span></a>
+                    </li>
+
+                    <div class="text-center d-none d-md-inline">
+                        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                    </div>
+            <?php    }
             }
             ?>
 

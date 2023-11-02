@@ -34,7 +34,7 @@ if (isset($_POST['teacherRegisterForm'])) {
         $result1 = mysqli_query($conn, $sql1);
 
         $password = get_safe_value_pta($conn, $_POST["phoneNo"]);
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $hash = password_hash($password,PASSWORD_DEFAULT);
         $sql2 = "INSERT INTO `teacherlogin` (`teacherID`, `teacherPassword`) VALUES ('$teacherID','$hash')";
         $result2 = mysqli_query($conn, $sql2);
         if ($result2) {

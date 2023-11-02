@@ -2,8 +2,8 @@
 require('partials/top.inc.php');
 
 if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true) {
-  header("location: login.php");
-  exit;
+    header("location: login.php");
+    exit;
 }
 ?>
 
@@ -88,45 +88,39 @@ if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true
     }
 </style>
 
-<div class="container-fluid">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h2 class="font-weight-bold text-primary">Parent Section</h2>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <div class="features">
-                    <div class="feature">
-                        <a href="student_profile.php">
-                            <h3>View Profile</h3>
-                            <p></p>
-                        </a>
-                    </div>
-                    <div class="feature">
-                        <a href="view_exam_student.php"">
-                            <h3>View Exam Marks</h3>
-                            <p></p>
-                        </a>
-                    </div>
+<div class="container p-0">
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
 
-                    <div class="feature">
-                        <a href="view_my_attendance.php">
-                            <h3>View Attendance</h3>
-                            <p></p>
-                        </a>
-                    </div>
-
-                    <div class="feature">
-                        <a href="view_fee.php">
-                            <h3>Fee Status</h3>
-                            <p></p>
-                        </a>
+                        <div class="card shadow m-auto">
+                            <div class="card-header">
+                                <h2><strong>Exam List</strong></h2>
+                            </div>
+                            <div class="container mb-3">
+                                <div class="features">
+                                    <div class="feature">
+                                        <a href="view_internals.php?type=first">
+                                            <h3>First Internals</h3>
+                                            <p></p>
+                                        </a>
+                                    </div>
+                                    <div class="feature">
+                                        <a href="view_internals.php?type=second">
+                                            <h3>Second Internals</h3>
+                                            <p></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> 
-
+</div>
 
 <?php include("partials/_footer.php"); ?>
