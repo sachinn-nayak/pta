@@ -48,10 +48,11 @@ if (isset($_POST['registerForm'])) {
             $showAlert = true;
         }
 
-        if ($result1) {
-            echo "success";
-            header("location: admin.php");
-            exit;
+        if ($result1) { ?>
+            <script>
+                window.location.href = "admin.php";
+            </script>
+        <?php
         } else {
             $showError = true;
         }

@@ -7,6 +7,8 @@ if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true
 }
 $week = date("D");
 $today = date("Md");
+// $week = 'Thu';
+// $today = 'Nov02';
 $studentID = $_SESSION['studentID'];
 $sqldis = "SELECT * FROM `studentdetails` WHERE `registerNo`='$studentID'";
 $resdis = mysqli_query($conn, $sqldis);
@@ -28,6 +30,7 @@ if ($sem == 1) {
     $tableName = "sixthBca";
 }
 $tableName = $tableName . $sec;
+$alreadyExists = false;
 ?>
 
 <div class="container">
@@ -199,10 +202,17 @@ $tableName = $tableName . $sec;
                                                         }
                                                     } ?>
                                                 </td>
+                                            </tr>
                                             <?php } else { ?>
-                                                <a class="btn btn-primary" href="student_attendance.php?type=add_date_col&date=<?php echo $today; ?>&table=<?php echo $queryString; ?>">Add Date</a>
+                                                <tr>
+                                                    <td scope="col">
+                                                        Status
+                                                    </td>
+                                                    <td colspan="8">
+                                                        <p class="center">Attendance yet not entered</p>
+                                                    </td>
+                                                </tr>
                                             <?php } ?>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
