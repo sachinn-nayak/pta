@@ -11,8 +11,8 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
 }
 
 $teacherID = $_SESSION['teacherID'];
-// $today = date("Md");
-$today = 'Oct25';
+$today = date("Md");
+// $today = 'Oct25';
 
 if (isset($_GET['sub']) && $_GET['sub'] != '') {
     $sem = get_safe_value_pta($conn, $_GET["sem"]);
