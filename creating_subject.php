@@ -11,6 +11,7 @@ $even = false;
 $tableInserted = false;
 $tableError = false;
 $alreadyExists = false;
+$successDel = false;
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value_pta($conn, $_GET['type']);
     if ($type == 'insertSuccess') {
@@ -25,6 +26,14 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
             $subjectName = get_safe_value_pta($conn, $_GET['sub']);
             $sqldel = "DELETE FROM `bcasub` WHERE `subjectName`='$subjectName'";
             $resdel = mysqli_query($conn, $sqldel);
+        }
+        if ($operation == 'delete_table') {
+            $subjectName = get_safe_value_pta($conn, $_GET['sub']);
+            $sqldel = "DROP Table `$subjectName`";
+            $resdel = mysqli_query($conn, $sqldel);
+            if ($resdel) {
+                $successDel = true;
+            }
         }
     }
 }
@@ -54,6 +63,12 @@ if ($tableInserted) {
 if ($tableError) {
     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Attendance Table was not created!</strong>.Please try again
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
+if ($successDel) {
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Table was sucesssfully Deleted.</strong>.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
 }
@@ -174,7 +189,7 @@ if ($tableError) {
                                                 }
                                             }
                                             if ($alreadyExists) {
-                                                echo '<a class="btn btn-primary disabled" aria-disabled="true">Create Attendance Table</a> ';
+                                                echo '<a class="btn btn-danger" href="creating_subject.php?type=delete&operation=delete_table&sub=' . $rowSub['subjectName'] . '" >Delete Attendance Table</a> ';
                                             } else {
                                                 echo '<a class="btn btn-primary" href="creating_attendance_table.php?type=create_table&sub=' . $rowSub['subjectName'] . '&sem=' . $rowSub['sem'] . '">Create Attendance Table</a> ';
                                             }

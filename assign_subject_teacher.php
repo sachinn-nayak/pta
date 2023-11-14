@@ -18,11 +18,13 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
       $sem = get_safe_value_pta($conn, $_GET["sem"]);
       $sec = get_safe_value_pta($conn, $_GET["sec"]);
    }
-   if($type == 'delete'){
+   if ($type == 'delete') {
+      $sem = get_safe_value_pta($conn, $_GET["sem"]);
+      $sec = get_safe_value_pta($conn, $_GET["sec"]);
       $sub = get_safe_value_pta($conn, $_GET['sub']);
       $sqlDel = "DELETE FROM `assigned_teacher` WHERE `sem`='$sem' AND `section`='$sec' AND `subjectName`='$sub'";
-      $resDel = mysqli_query($conn,$sqlDel);
-      if($resDel){
+      $resDel = mysqli_query($conn, $sqlDel);
+      if ($resDel) {
          $deleteSuccess = true;
       }
    }
@@ -95,7 +97,7 @@ if ($insertSuccess) {
                                              <td scope="row">' . $row['section'] . '</td>
                                              <td scope="row">' . $row['subjectName'] . '</td>
                                              <td scope="row">
-                                                <a class="btn btn-danger" href="?type=delete&sem=1&sec=A&sub=' . $row['subjectName'] . '">Delete</a>
+                                                <a class="btn btn-danger" href="assign_subject_teacher.php?type=delete&sem=' . $row['sem'] . '&sec=' . $row['section'] . '&sub=' . $row['subjectName'] . '">Delete</a>
                                              </td>
                                           </tr>';
                                     }

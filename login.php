@@ -165,7 +165,6 @@ if ($showStudentError) {
                             <input type="password" id="adminPassword" name="adminPassword" required />
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
                 <div class="tab-pane fade <?php if ($showTeacherError) {
@@ -182,7 +181,6 @@ if ($showStudentError) {
 
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
                 <div class="tab-pane fade <?php if ($showStudentError) {
@@ -199,7 +197,6 @@ if ($showStudentError) {
 
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
             </div>
