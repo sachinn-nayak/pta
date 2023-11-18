@@ -21,7 +21,7 @@
 
         .full-screen {
             font-family: Arial, sans-serif;
-            background-image: url(blur2.jpg);
+            background-image: url(img/blur2.jpg);
             color: #333;
             background-repeat: no-repeat;
             width: 100vw;
@@ -399,7 +399,7 @@
     <div class="image-section">
         <div class="image-container">
             <div class="image-3">
-                <img src="5.jpg" alt="Image 1" />
+                <img src="img/5.jpg" alt="Image 1" />
             </div>
         </div>
         <div class="description-container">
@@ -426,7 +426,7 @@
                     educational experience for our students.</p>
             </div>
             <div class="about-image">
-                <img src="4.jpg" alt="About Us Image">
+                <img src="img/4.jpg" alt="About Us Image">
             </div>
         </div>
     </div>
