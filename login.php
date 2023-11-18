@@ -80,7 +80,6 @@ if ($showStudentError) {
     .containerlg {
         width: 50%;
         padding: 16px;
-        background-color: #fff;
         margin: 0 auto;
         margin-top: 100px;
         border: 1px solid #ddd;

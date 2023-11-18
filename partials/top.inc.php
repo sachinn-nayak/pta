@@ -21,7 +21,6 @@ session_start();
     <link rel="stylesheet" href="/pta/css/custom.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.6/b-2.4.2/datatables.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
