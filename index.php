@@ -447,19 +447,19 @@
             <div class="feature">
                 <h3><i class="icon fa fa-graduation-cap"></i>Parent and Teacher collabration</h3>
                 <p> PTAs promote collaboration and communication between parents and teachers. </p>
-                <a href="#Aboutus" class="read-more">Read More</a>
+
             </div>
 
             <div class="feature">
                 <h3><i class="icon fa fa-university"></i>Support for Education</h3>
                 <p> PTAs often organize various activities and initiatives to support the educational institution.</p>
-                <a href="#Aboutus" class="read-more">Read More</a>
+
             </div>
 
             <div class="feature">
                 <h3><i class="icon fa fa-globe"></i>Community Engagement</h3>
                 <p> PTAs often extend their efforts to engage the broader community. </p>
-                <a href="Aboutus" class="read-more">Read More</a>
+
             </div>
         </div>
     </div>
@@ -470,10 +470,13 @@
             </div>
         </div>
         <div class="description-container">
-            <h2>A few words abour our Association</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rem iusto voluptate ipsa? Tempora,
-                voluptatem necessitatibus mollitia, consequuntur omnis illo impedit, quia similique corporis
-                voluptatibus deleniti incidunt consequatur autem ipsam?</p>
+            <h2>A few words about our Association</h2>
+            <p>The Parent-Teacher Association (PTA) website is a dedicated online platform designed to foster
+                collaboration and communication between parents, teachers, and administrators within an educational
+                institution. This digital space serves as a central hub for managing crucial academic information,
+                facilitating seamless interaction, and enhancing the overall educational experience for students. The
+                PTA website aims to create a bridge between home and school, fostering a supportive community focused on
+                the well-being and academic success of the students.</p>
             <p></p>
             <p></p>
         </div>
