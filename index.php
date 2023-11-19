@@ -378,6 +378,11 @@
             transition: property-name duration timing-function;
         }
 
+        header {
+            position: fixed;
+            width: 100vw;
+        }
+
         nav ul {
             list-style: circle;
             display: flex;
@@ -461,7 +466,7 @@
     <div class="image-section">
         <div class="image-container">
             <div class="image-3">
-                <img src="5.jpg" alt="Image 1" />
+                <img src="img/5.jpg" alt="Image 1" />
             </div>
         </div>
         <div class="description-container">
@@ -488,7 +493,7 @@
                     educational experience for our students.</p>
             </div>
             <div class="about-image">
-                <img src="4.jpg" alt="About Us Image">
+                <img src="img/4.jpg" alt="About Us Image">
             </div>
         </div>
     </div>

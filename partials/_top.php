@@ -85,8 +85,7 @@ session_start();
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Programs</a></li>
+                    <li><a href="event.html">Events</a></li>
                     <li><a href="index.php/#Aboutus">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
