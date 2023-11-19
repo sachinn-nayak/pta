@@ -32,8 +32,7 @@ if (isset($_POST['adminID']) && isset($_POST['adminPassword'])) {
             $_SESSION['teacherID'] = $teacherID;
             header("location: teacher.php");
         } else {
-            echo 'unsucess';
-            die();
+            $showTeacherError = true;
         }
     } else {
         $showTeacherError = true;

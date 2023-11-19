@@ -45,6 +45,8 @@ if (isset($_POST['updateRegisterForm'])) {
 
 $delete = false;
 if (isset($_GET['delete'])) {
+    $sem = get_safe_value_pta($conn, $_GET['sem']);
+    $section = get_safe_value_pta($conn, $_GET['sec']);
     $registerNo = get_safe_value_pta($conn, $_GET["delete"]);
     $delete = true;
     $sql = "DELETE FROM `studentdetails` WHERE `registerNo` = '$registerNo'";
@@ -201,7 +203,7 @@ if ($error) {
                                                 <td>' . $row['phoneNo'] . '</td>
                                                 <td>' . $row['feeAmount'] . '</td>
                                                 <td>' . $row['paidFeeAmount'] . '</td>
-                                                <td class="grid"><button type="button" class="edit btn btn-primary mb-1" id=' . $row['registerNo'] . '>Edit</button>   <button type="button" class="delete btn btn-danger" id=' . $row['registerNo'] . '>Delete</button></td>
+                                                <td class="grid"><button type="button" class="edit btn btn-primary mb-1" id=' . $row['registerNo'] . '>Edit</button>    <a class="btn btn-danger" href="view_student_details.php?delete=' . $row['registerNo'] . '&sem=' . $row['sem'] . '&sec=' . $row['section'] . '">Delete</a>
                                             </tr>';
                                         }
                                         ?>

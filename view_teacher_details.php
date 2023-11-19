@@ -23,7 +23,6 @@ if (isset($_POST['updateTeacherRegisterForm'])) {
     }
 }
 
-
 $delete = false;
 if (isset($_GET['delete_teacher'])) {
     $teacherID = get_safe_value_pta($conn, $_GET["delete_teacher"]);
@@ -36,7 +35,7 @@ if (isset($_GET['delete_teacher'])) {
 <?php
 if ($delete) {
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Deleation was sucesssfull!</strong>.
+    <strong>Deleted was sucesssfull!</strong>.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
 }
@@ -153,10 +152,3 @@ if ($error) {
 <?php
 require('partials/_footer.php');
 ?>
-<script>
-    <?php
-    if (isset($_GET)) {
-    ?>
-        get_bca_sec('<?php echo $sub_categories_id ?>');
-    <?php } ?>
-</script>

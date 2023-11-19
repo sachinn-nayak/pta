@@ -9,7 +9,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Parent's Teacher's Association</title>
     <link rel="stylesheet" href="css/stylebs.css">
     <link rel="stylesheet" href="/pta/css/custom.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
@@ -84,10 +84,10 @@ session_start();
             <h1>Parent's Teacher's Association</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#">Events</a></li>
                     <li><a href="#">Programs</a></li>
-                    <li><a href="#Aboutus">About Us</a></li>
+                    <li><a href="index.php/#Aboutus">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>

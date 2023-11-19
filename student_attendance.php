@@ -6,18 +6,19 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
     exit;
 }
 
-$week = date("D");
-$today = date("Md");
-// $today = 'Oct14';
-// $week = 'Mon';
+// $week = date("D");
+// $today = date("Md");
+$today = 'Oct14';
+$week = 'Mon';
 $successInsert = false;
+$errorInsert = false;
 $alreadyExists = false;
 $successDel = false;
 $tablelist = ['hii'];
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value_pta($conn, $_GET['type']);
-    if($type == 'delete'){
+    if ($type == 'delete') {
         $tablename = get_safe_value_pta($conn, $_GET["table"]);
         $sqldel = "DROP TABLE `$tablename`";
         $resdel = mysqli_query($conn, $sqldel);
@@ -92,6 +93,12 @@ if ($successDel) {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>';
 }
+if ($errorInsert) {
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Date was not inserted sucesssfully.</strong>.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
 ?>
 
 <div class="container p-0">
@@ -149,7 +156,7 @@ if ($successDel) {
                                             if ($resfind) {
                                                 if (mysqli_num_rows($resfind) > 0) {
                                                     echo '<a class="btn btn-primary" href="creating_timetable.php?sem=' . $row['sem'] . '&sec=' . $row['section'] . '">View TimeTable</a>
-                                                    <a class="btn btn-danger" href="student_attendance.php?type=delete&table='.$tableName.'">Delete TimeTable</a>';
+                                                    <a class="btn btn-danger" href="student_attendance.php?type=delete&table=' . $tableName . '">Delete TimeTable</a>';
                                                 } else {
                                                     echo '<a class="btn btn-primary" href="creating_timetable.php?type=create_timetable&sem=' . $row['sem'] . '&sec=' . $row['section'] . '">Create TimeTable</a>';
                                                 }
@@ -166,6 +173,7 @@ if ($successDel) {
                                                 $resSub = mysqli_query($conn, $sqlSub);
                                                 while ($row = mysqli_fetch_assoc($resSub)) {
                                                     $sqlDate = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME =  '{$row['subjectName']}' AND COLUMN_NAME = '$today'";
+                                                    // echo $sqlDate;
                                                     $resDate = mysqli_query($conn, $sqlDate);
                                                     if (mysqli_num_rows($resDate) > 0) {
                                                         $alreadyExists = true;

@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Font1|Font2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-
+    <link rel="stylesheet" href="css/stylebs.css">
     <style>
         body,
         h1,
@@ -24,9 +23,8 @@
             background-image: url(img/blur2.jpg);
             color: #333;
             background-repeat: no-repeat;
-            width: 100vw;
-            padding: 20px;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
 
         }
 
@@ -365,6 +363,7 @@
                     <li><a href="#">Programs</a></li>
                     <li><a href="#Aboutus">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>
         </div>

@@ -26,6 +26,11 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
             $subjectName = get_safe_value_pta($conn, $_GET['sub']);
             $sqldel = "DELETE FROM `bcasub` WHERE `subjectName`='$subjectName'";
             $resdel = mysqli_query($conn, $sqldel);
+            $sqldel1 = "DROP Table `$subjectName`";
+            $resdel1 = mysqli_query($conn, $sqldel1);
+            if ($resdel) {
+                $successDel = true;
+            }
         }
         if ($operation == 'delete_table') {
             $subjectName = get_safe_value_pta($conn, $_GET['sub']);

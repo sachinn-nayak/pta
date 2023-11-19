@@ -1,16 +1,18 @@
 <?php
 require('partials/top.inc.php');
 
-if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true) {?>
-        <script>
-            window.location.href = "login.php";
-        </script>
+if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true) { ?>
+    <script>
+        window.location.href = "login.php";
+    </script>
 <?php
 }
 
 $update = false;
 $error = false;
 $studentID = $_SESSION['studentID'];
+$total = 0;
+$obtained = 0;
 
 if (isset($_GET['type']) && $_GET['type'] != '') {
     $type = get_safe_value_pta($conn, $_GET['type']);
@@ -52,6 +54,8 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
                                             $i = 0;
                                             while ($row = mysqli_fetch_assoc($restt)) {
                                                 $i = $i + 1;
+                                                $total = $total + 25;
+                                                $obtained = $obtained + $row['marks'];
                                                 echo '<tr>
                                                     <td scope="row">' . $i . '</td>
                                                     <td scope="row">' . $row['subject'] . '</td>
@@ -65,6 +69,8 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
                                             $i = 0;
                                             while ($row = mysqli_fetch_assoc($restt)) {
                                                 $i = $i + 1;
+                                                $total = $total + 50;
+                                                $obtained = $obtained + $row['marks'];
                                                 echo '<tr>
                                                     <td scope="row">' . $i . '</td>
                                                     <td scope="row">' . $row['subject'] . '</td>
@@ -73,6 +79,12 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
                                                 </tr>';
                                             }
                                         }
+                                        echo '<tr>
+                                        <td scope="row"></td>
+                                        <td scope="row">Total</td>
+                                        <td scope="row">' . $obtained . '</td>
+                                        <td scope="row">' . $total . '</td>
+                                    </tr>';
                                         ?>
                                     </tbody>
                                 </table>
