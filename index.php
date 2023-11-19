@@ -18,13 +18,34 @@
             padding: 0;
         }
 
+        body {
+            font-family: Arial, sans-serif;
+            background-repeat: no-repeat;
+            color: #333;
+            padding: 0px;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+        }
+
         .full-screen {
             font-family: Arial, sans-serif;
             background-image: url(img/blur2.jpg);
             color: #333;
             background-repeat: no-repeat;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            padding: 20px;
+            height: 100vh;
 
         }
 
@@ -328,6 +349,10 @@
             flex: 1;
         }
 
+        footer a {
+            text-decoration: none;
+        }
+
         .navbar-links a {
             color: black;
             text-decoration: none;
@@ -348,6 +373,45 @@
             font-family: Arial, sans-serif;
 
         }
+
+        * {
+            transition: property-name duration timing-function;
+        }
+
+        nav ul {
+            list-style: circle;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #7098da;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-family: Georgia, serif;
+            padding: 5px;
+        }
+
+        nav a:hover {
+            color: #ff6600;
+        }
+
+        nav a[href="login.html"] {
+            background-color: #7098da;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a[href="login.html"]:hover {
+            background-color: #e65200;
+        }
     </style>
     <title>PTA Website</title>
 </head>
@@ -359,8 +423,7 @@
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Programs</a></li>
+                    <li><a href="event.html">Events</a></li>
                     <li><a href="#Aboutus">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="login.php">Login</a></li>
@@ -398,7 +461,7 @@
     <div class="image-section">
         <div class="image-container">
             <div class="image-3">
-                <img src="img/5.jpg" alt="Image 1" />
+                <img src="5.jpg" alt="Image 1" />
             </div>
         </div>
         <div class="description-container">
@@ -425,7 +488,7 @@
                     educational experience for our students.</p>
             </div>
             <div class="about-image">
-                <img src="img/4.jpg" alt="About Us Image">
+                <img src="4.jpg" alt="About Us Image">
             </div>
         </div>
     </div>
@@ -442,10 +505,8 @@
             <div class="links">
                 <h3>Links</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="botlog.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
 
