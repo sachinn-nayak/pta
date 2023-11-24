@@ -32,8 +32,7 @@ if (isset($_POST['adminID']) && isset($_POST['adminPassword'])) {
             $_SESSION['teacherID'] = $teacherID;
             header("location: teacher.php");
         } else {
-            echo 'unsucess';
-            die();
+            $showTeacherError = true;
         }
     } else {
         $showTeacherError = true;
@@ -80,7 +79,6 @@ if ($showStudentError) {
     .containerlg {
         width: 50%;
         padding: 16px;
-        background-color: #fff;
         margin: 0 auto;
         margin-top: 100px;
         border: 1px solid #ddd;
@@ -165,7 +163,6 @@ if ($showStudentError) {
                             <input type="password" id="adminPassword" name="adminPassword" required />
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
                 <div class="tab-pane fade <?php if ($showTeacherError) {
@@ -182,7 +179,6 @@ if ($showStudentError) {
 
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
                 <div class="tab-pane fade <?php if ($showStudentError) {
@@ -199,7 +195,6 @@ if ($showStudentError) {
 
                             <input type="submit" value="Login" />
                         </form>
-                        <p>Forgot your <a href="#">Password?</a></p>
                     </div>
                 </div>
             </div>

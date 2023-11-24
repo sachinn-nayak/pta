@@ -5,7 +5,22 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
     header("location: login.php");
     exit;
 }
+$delete = false;
+if (isset($_GET['operation'])) {
+    $studentID = get_safe_value_pta($conn, $_GET["studentID"]);
+    $sql = "DELETE FROM `studentlogin` WHERE `studentID`='$studentID'";
+    $result = mysqli_query($conn, $sql);
+    if($result){
+        $delete = true;
+    }
+}
 
+if ($delete) {
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Deleted sucesssfull!</strong>.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
 ?>
 
 <div class="container p-0">
@@ -31,7 +46,6 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
                                     <tbody>
                                         <?php
                                         $sqlA = "SELECT `id`, `studentID` FROM `studentlogin`";
-
                                         $resA = mysqli_query($conn, $sqlA);
                                         $secAa = [];
                                         $semA = '';
@@ -39,12 +53,11 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
                                         while ($row = mysqli_fetch_assoc($resA)) {
                                             $i = $i + 1;
                                             echo '<tr>
-                <td scope="row">' . $i . '</td>
-                <td scope="row">' . $row['studentID'] . '</td>
-                <td scope="row">
-                    <button type="button" class="delete_studentID btn btn-danger" id="' . $row['studentID'] . '">Delete</button>
-                </td>
-            </tr>';
+                                                    <td scope="row">' . $i . '</td>
+                                                    <td scope="row">' . $row['studentID'] . '</td>
+                                                    <td scope="row">
+                                                    <a class="btn btn-danger" href="?operation=delete_studentID&studentID=' . $row['studentID'] . '">Delete</a>
+                                                </td>';
                                         }
                                         ?>
 

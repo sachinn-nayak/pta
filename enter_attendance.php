@@ -64,7 +64,7 @@ if (isset($_POST['enterAttendance'])) {
 
                         <div class="card shadow m-auto">
                             <div class="card-header">
-                                <h3><strong>View Student Details</strong><small></small></h3>
+                                <h3><strong>Enter Student Attendance</strong><small></small></h3>
                             </div>
 
                             <div class="container table-responsive w-75 m-auto mt-2 mb-3">

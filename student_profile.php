@@ -1,7 +1,7 @@
 <?php
 require('partials/top.inc.php');
 
-if (!isset($_SESSION['teacherLoggedIn']) || $_SESSION['teacherLoggedIn'] != true) { ?>
+if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true) { ?>
     <script>
         window.location.href = "login.php";
     </script>
@@ -12,32 +12,40 @@ if (!isset($_SESSION['teacherLoggedIn']) || $_SESSION['teacherLoggedIn'] != true
 $updateSuccess = false;
 $matchError = '';
 $currentError = '';
-$teacherID = $_SESSION['teacherID'];
+$studentID = $_SESSION['studentID'];
 $teacherName = '';
 $firstName = '';
 $lastName = '';
 $email = '';
 $phoneNo = '';
-$sql = "SELECT * FROM `teacherdetails` WHERE `teacherID`='$teacherID'";
+$sem = '';
+$section = '';
+$fathersName = '';
+$mothersName = '';
+$sql = "SELECT * FROM `studentdetails` WHERE `registerNo`='$studentID'";
 $res = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($res)) {
-    $teacherName = $row['name'];
-    $nameParts = explode(" ", $teacherName);
+    $studentName = $row['name'];
+    $nameParts = explode(" ", $studentName);
     $firstName = $nameParts[0];
     $lastName = $nameParts[1];
     $email = $row['email'];
     $phoneNo = $row['phoneNo'];
+    $sem = $row['sem'];
+    $section = $row['section'];
+    $fathersName = $row['fathersName'];
+    $mothersName = $row['mothersName'];
 }
-if (isset($_POST['updateTeacherPassword'])) {
+if (isset($_POST['updateStudentPassword'])) {
     $currentPassword = get_safe_value_pta($conn, $_POST['currentPassword']);
     $newPassword = get_safe_value_pta($conn, $_POST['newPassword']);
     $confirmPassword = get_safe_value_pta($conn, $_POST['confirmPassword']);
-    $sqlUp = "SELECT `teacherPassword` FROM `teacherlogin` WHERE `teacherID`='$teacherID'";
+    $sqlUp = "SELECT `studentPassword` FROM `studentlogin` WHERE `studentrID`='$studentID'";
     $resUp = mysqli_query($conn, $sqlUp);
 
     if ($resUp) {
         while ($rowUp = mysqli_fetch_assoc($resUp)) {
-            $storedPassword = $rowUp['teacherPassword'];
+            $storedPassword = $rowUp['studentPassword'];
         }
 
         if (password_verify($currentPassword, $storedPassword)) {
@@ -46,7 +54,7 @@ if (isset($_POST['updateTeacherPassword'])) {
                 $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
                 // Update the user's password in the database
-                $updateSql = "UPDATE `teacherlogin` SET `teacherPassword` = '$hashedNewPassword' WHERE `teacherID`='$teacherID'";
+                $updateSql = "UPDATE `studentlogin` SET `studentPassword` = '$hashedNewPassword' WHERE `teacherID`='$teacherID'";
                 $updateResult = mysqli_query($conn, $updateSql);
 
                 if ($updateResult) {
@@ -68,7 +76,7 @@ if (isset($_POST['updateTeacherPassword'])) {
 
 ?>
 
-<div class="container w-75 m-auto p-0">
+<div class="container">
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">
@@ -82,11 +90,11 @@ if (isset($_POST['updateTeacherPassword'])) {
                             <div class="container mb-3">
                                 <form class="row g-3 m-2">
                                     <div class="col-md-2">
-                                        <label for="teacherID" class="form-label">TeacherID</label>
-                                        <input type="text" maxlength="10" class="form-control" id="teacherID" name="teacherID" value="<?php echo $teacherID; ?>">
+                                        <label for="registerNo" class="form-label">Register No</label>
+                                        <input type="text" maxlength="7" class="form-control" id="registerNo" name="registerNo" value="<?php echo $studentID; ?>">
                                     </div>
                                     <div class="col-md-5">
-                                        <label for="firstName" class="form-label">First Name</label>
+                                        <label for="firstName" class="form-label">Frist Name</label>
                                         <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>">
                                     </div>
                                     <div class="col-md-5">
@@ -94,15 +102,32 @@ if (isset($_POST['updateTeacherPassword'])) {
                                         <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>">
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="fatherName" class="form-label">Father Name</label>
+                                        <input type="text" class="form-control" id="fatherName" name="fatherName" value="<?php echo $fathersName; ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="motherName" class="form-label">Mother Name</label>
+                                        <input type="text" class="form-control" id="motherName" name="motherName" value="<?php echo $mothersName; ?>">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="course" class="form-label">Course</label>
+                                        <input type="text" class="form-control" id="course" name="course" value="BCA">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="sem" class="form-label">Semester</label>
+                                        <input id="sem" class="form-control" name="sem" value="<?php echo $sem; ?>">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="section" class="form-label">Section</label>
+                                        <input id="section" class="form-control" name="section" value="<?php echo $section; ?>">
+                                    </div>
+                                    <div class="col-md-4">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label for="phoneNo" class="form-label">Phone No</label>
                                         <input type="tel" class="form-control" id="phoneNo" name="phoneNo" value="<?php echo $phoneNo; ?>">
-                                    </div>
-                                    <div class="col-12 center">
-                                        <a class="btn btn-primary" href="teacher.php">Back</a>
                                     </div>
                                 </form>
                                 <div class="col-12">
@@ -134,7 +159,7 @@ if (isset($_POST['updateTeacherPassword'])) {
                                         <p class="error"><?php echo $matchError; ?></p>
                                     </div>
                                     <div class="col-6">
-                                        <input type="submit" class="btn btn-primary" name="updateTeacherPassword" value="Update">
+                                        <input type="submit" class="btn btn-primary" name="updateStudentPassword" value="Update">
                                     </div>
                             </div>
                             </form>

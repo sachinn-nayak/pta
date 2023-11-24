@@ -5,10 +5,10 @@ if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true
     header("location: login.php");
     exit;
 }
-$week = date("D");
-$today = date("Md");
-// $week = 'Thu';
-// $today = 'Nov02';
+// $week = date("D");
+// $today = date("Md");
+$today = 'Oct14';
+$week = 'Mon';
 $studentID = $_SESSION['studentID'];
 $sqldis = "SELECT * FROM `studentdetails` WHERE `registerNo`='$studentID'";
 $resdis = mysqli_query($conn, $sqldis);
@@ -31,6 +31,7 @@ if ($sem == 1) {
 }
 $tableName = $tableName . $sec;
 $alreadyExists = false;
+$subName = [];
 ?>
 
 <div class="container">
@@ -90,6 +91,8 @@ $alreadyExists = false;
                                         <tr>
                                             <?php
                                             $status = [];
+                                            $taken = 0;
+                                            $totalAttended = 0;
                                             for ($i = 0; $i < count($subName); $i++) {
                                                 if ($subName[$i] == 'Free' || $subName[$i] == 'Same') {
                                                     continue;
@@ -116,10 +119,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[0] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[0]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[0];
+                                                            if ($status[0]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -129,10 +136,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[1] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[1]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[1];
+                                                            if ($status[1]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -142,10 +153,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[2] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[2]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[2];
+                                                            if ($status[2]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -155,10 +170,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[3] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[3]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[3];
+                                                            if ($status[3]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -169,10 +188,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[4] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[4]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[4];
+                                                            if ($status[4]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -182,10 +205,14 @@ $alreadyExists = false;
                                                     } elseif ($subName[5] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[5]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[5];
+                                                            if ($status[5]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
                                                         }
                                                     } ?>
                                                 </td>
@@ -195,24 +222,47 @@ $alreadyExists = false;
                                                     } elseif ($subName[6] == 'Same') {
                                                         echo 'Same';
                                                     } else {
+                                                        $taken = $taken + 1;
                                                         if ($status[6]=='Empty'){
                                                             echo 'Pending';
                                                         } else {
                                                             echo $status[6];
+                                                            if ($status[6]=='Present'){
+                                                                $totalAttended = $totalAttended + 1;
+                                                            }
+
                                                         }
                                                     } ?>
                                                 </td>
                                             </tr>
                                             <?php } else { ?>
                                                 <tr>
-                                                    <td scope="col">
+                                                    <th scope="col">
                                                         Status
-                                                    </td>
+                                                    </th>
                                                     <td colspan="8">
                                                         <p class="center">Attendance yet not entered</p>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
+                                            <tr>
+                                                <th scope="col">
+                                                    Report
+                                                </th>
+                                                <td colspan="6">
+                                                    Total Taken 
+                                                </td>
+                                                <td colspan="2"><?php echo $taken; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    Report
+                                                </th>
+                                                <td colspan="6">
+                                                    Total Attended 
+                                                </td>
+                                                <td colspan="2"><?php echo $totalAttended; ?></td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
