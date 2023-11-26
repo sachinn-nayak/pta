@@ -15,10 +15,10 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 }
 
 $teacherID = $_SESSION['teacherID'];
-// $today = date("Md");
-// $week  = date("D");
-$today = 'Oct14';
-$week = 'Mon';
+$today = date("Md");
+$week  = date("D");
+// $today = 'Oct14';
+// $week = 'Mon';
 $columnExists = false;
 $sem = '';
 // echo $week;
