@@ -91,43 +91,43 @@ if (isset($_POST['updateStudentPassword'])) {
                                 <form class="row g-3 m-2">
                                     <div class="col-md-2">
                                         <label for="registerNo" class="form-label">Register No</label>
-                                        <input type="text" maxlength="7" class="form-control" id="registerNo" name="registerNo" value="<?php echo $studentID; ?>">
+                                        <input type="text" maxlength="7" class="form-control" id="registerNo" name="registerNo" value="<?php echo $studentID; ?>" disabled>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="firstName" class="form-label">Frist Name</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>">
+                                        <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>" disabled>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="lastName" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>">
+                                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>" disabled>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="fatherName" class="form-label">Father Name</label>
-                                        <input type="text" class="form-control" id="fatherName" name="fatherName" value="<?php echo $fathersName; ?>">
+                                        <input type="text" class="form-control" id="fatherName" name="fatherName" value="<?php echo $fathersName; ?>" disabled>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="motherName" class="form-label">Mother Name</label>
-                                        <input type="text" class="form-control" id="motherName" name="motherName" value="<?php echo $mothersName; ?>">
+                                        <input type="text" class="form-control" id="motherName" name="motherName" value="<?php echo $mothersName; ?>" disabled>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="course" class="form-label">Course</label>
-                                        <input type="text" class="form-control" id="course" name="course" value="BCA">
+                                        <input type="text" class="form-control" id="course" name="course" value="BCA" disabled>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="sem" class="form-label">Semester</label>
-                                        <input id="sem" class="form-control" name="sem" value="<?php echo $sem; ?>">
+                                        <input id="sem" class="form-control" name="sem" value="<?php echo $sem; ?>" disabled>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="section" class="form-label">Section</label>
-                                        <input id="section" class="form-control" name="section" value="<?php echo $section; ?>">
+                                        <input id="section" class="form-control" name="section" value="<?php echo $section; ?>" disabled>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
+                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" disabled>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="phoneNo" class="form-label">Phone No</label>
-                                        <input type="tel" class="form-control" id="phoneNo" name="phoneNo" value="<?php echo $phoneNo; ?>">
+                                        <input type="tel" class="form-control" id="phoneNo" name="phoneNo" value="<?php echo $phoneNo; ?>" disabled>
                                     </div>
                                 </form>
                                 <div class="col-12">

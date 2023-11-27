@@ -83,23 +83,23 @@ if (isset($_POST['updateTeacherPassword'])) {
                                 <form class="row g-3 m-2">
                                     <div class="col-md-2">
                                         <label for="teacherID" class="form-label">TeacherID</label>
-                                        <input type="text" maxlength="10" class="form-control" id="teacherID" name="teacherID" value="<?php echo $teacherID; ?>">
+                                        <input type="text" maxlength="10" class="form-control" id="teacherID" name="teacherID" value="<?php echo $teacherID; ?>" disabled>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="firstName" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>">
+                                        <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $firstName; ?>" disabled>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="lastName" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>">
+                                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $lastName; ?>" disabled>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
+                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" disabled>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phoneNo" class="form-label">Phone No</label>
-                                        <input type="tel" class="form-control" id="phoneNo" name="phoneNo" value="<?php echo $phoneNo; ?>">
+                                        <input type="tel" class="form-control" id="phoneNo" name="phoneNo" value="<?php echo $phoneNo; ?>" disabled>
                                     </div>
                                     <div class="col-12 center">
                                         <a class="btn btn-primary" href="teacher.php">Back</a>
