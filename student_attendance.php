@@ -6,10 +6,10 @@ if (!isset($_SESSION['adminLoggedIn']) || $_SESSION['adminLoggedIn'] != true) {
     exit;
 }
 
-// $week = date("D");
-// $today = date("Md");
-$today = 'Oct14';
-$week = 'Mon';
+$week = date("D");
+$today = date("Md");
+// $today = 'Oct14';
+// $week = 'Mon';
 $successInsert = false;
 $errorInsert = false;
 $alreadyExists = false;

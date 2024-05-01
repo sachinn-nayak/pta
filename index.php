@@ -24,18 +24,11 @@
             color: #333;
             padding: 0px;
             margin: 0;
+            overflow-x: hidden;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        body {
-            margin: 0;
         }
 
         .full-screen {
@@ -95,7 +88,7 @@
             color: #ff6600;
         }
 
-        .hero {
+        .HD {
             text-align: center;
             padding: 100px 0;
             color: #7098da;
@@ -106,12 +99,12 @@
             margin-bottom: 20px;
         }
 
-        .hero p {
+        .HD p {
             font-size: 24px;
             margin-bottom: 30px;
         }
 
-        .hero-button:hover {
+        .HD-button:hover {
             background-color: #e65200;
         }
 
@@ -122,7 +115,7 @@
         }
 
         .features {
-            display: flex;
+            display:flex;
             flex-wrap: nowrap;
             justify-content: space-around;
         }
@@ -384,7 +377,7 @@
         }
 
         nav ul {
-            list-style: circle;
+        
             display: flex;
             align-items: center;
         }
@@ -406,17 +399,9 @@
             color: #ff6600;
         }
 
-        nav a[href="login.html"] {
-            background-color: #7098da;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    
 
-        nav a[href="login.html"]:hover {
-            background-color: #e65200;
-        }
+     
     </style>
     <title>PTA Website</title>
 </head>
@@ -438,7 +423,7 @@
     </header>
 
     <div class="full-screen">
-        <div class="hero">
+        <div class="HD">
             <h2>Welcome to PTA</h2>
             <p>Join us in supporting students' education</p>
         </div>

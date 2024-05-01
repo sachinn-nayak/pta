@@ -36,9 +36,14 @@ if (isset($_POST['registerForm'])) {
         $phoneNo = get_safe_value_pta($conn, $_POST["phoneNo"]);
         $feeAmount = get_safe_value_pta($conn, $_POST["feeAmount"]);
         $paidFeeAmount = get_safe_value_pta($conn, $_POST["paidFeeAmount"]);
-
+        $balance = 0;
         $sql1 = "INSERT INTO `studentdetails` (`registerNo`, `name`, `fathersName`, `mothersName`, `course`, `sem`, `section`, `phoneNo`, `email`, `feeAmount`, `paidFeeAmount`) VALUES ('$registerNo', '$name', '$fatherName', '$motherName', '$course', '$sem', '$section', '$phoneNo', '$email', '$feeAmount', '$paidFeeAmount')";
         $result1 = mysqli_query($conn, $sql1);
+        
+        $balance = $feeAmount - $paidFeeAmount;
+
+        $sqlfee = "INSERT INTO `studentfeedetails`(`registerNo`, `feeAmount`, `amountPending`, `paidAmount`, `balanceAmount`) VALUES ('$registerNo','$feeAmount','$balance','$paidFeeAmount','$balance')";
+        $resfee = mysqli_query($conn,$sqlfee);
 
         $password = get_safe_value_pta($conn, $_POST["phoneNo"]);
         $hash = password_hash($password, PASSWORD_DEFAULT);

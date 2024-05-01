@@ -5,10 +5,10 @@ if (!isset($_SESSION['studentLoggedIn']) || $_SESSION['studentLoggedIn'] != true
     header("location: login.php");
     exit;
 }
-// $week = date("D");
-// $today = date("Md");
-$today = 'Oct14';
-$week = 'Mon';
+$week = date("D");
+$today = date("Md");
+// $today = 'Oct14';
+// $week = 'Mon';
 $studentID = $_SESSION['studentID'];
 $sqldis = "SELECT * FROM `studentdetails` WHERE `registerNo`='$studentID'";
 $resdis = mysqli_query($conn, $sqldis);
@@ -250,7 +250,7 @@ $subName = [];
                                                     Report
                                                 </th>
                                                 <td colspan="6">
-                                                    Total Taken 
+                                                    Total Class Taken 
                                                 </td>
                                                 <td colspan="2"><?php echo $taken; ?></td>
                                             </tr>
@@ -259,7 +259,7 @@ $subName = [];
                                                     Report
                                                 </th>
                                                 <td colspan="6">
-                                                    Total Attended 
+                                                    Total Class Attended 
                                                 </td>
                                                 <td colspan="2"><?php echo $totalAttended; ?></td>
                                             </tr>
